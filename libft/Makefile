@@ -1,6 +1,6 @@
 NAME = libft.a
 
-COMPFLAG = cc -Wall -Werror -Wextra
+COMPFLAG = cc -g -Wall -Werror -Wextra
 
 SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c \
 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
@@ -8,8 +8,10 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 	ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c \
 	ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew_bonus.c \
-	ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstsize_bonus.c \
+	ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 	ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c\
+	ft_printf.c ft_printchar.c ft_printhex.c ft_printnbr.c \
+	ft_printpointer.c ft_printstring.c ft_printunsigned.c
 
 BONUS =
 
@@ -17,13 +19,16 @@ OBJ = $(SRC:.c=.o)
 
 BONUSOBJ = $(BONUS:.c=.o)
 
-all: $(NAME)
+all: $(LIBFTPRINTF_A) $(NAME)
 
 $(OBJ): $(SRC)
 		$(COMPFLAG) -c $(SRC)
 
 $(NAME): $(OBJ)
 		ar -rc $(NAME) $(OBJ)
+
+$(LIBFTPRINTF_A):
+		make -C
 
 bonus: $(BONUSOBJ) $(OBJ)
 		ar -rc $(NAME) $(BONUSOBJ) $(OBJ)

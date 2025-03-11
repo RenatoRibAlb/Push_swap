@@ -6,7 +6,7 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 08:45:14 by reribeir          #+#    #+#             */
-/*   Updated: 2024/10/02 09:41:50 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/03/11 14:58:22 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!ns)
 		return (NULL);
 	len = 0;
-	while (s1[len] != '\0')
+	while (s1 && s1[len] != '\0')
 	{
 		ns[len] = s1[len];
 		len++;
 	}
-	while (s2[i] != '\0')
+	while (s2 && s2[i] != '\0')
 	{
 		ns[len] = s2[i];
 		i++;

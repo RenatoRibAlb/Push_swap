@@ -6,29 +6,51 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 08:14:12 by reribeir          #+#    #+#             */
-/*   Updated: 2025/01/14 17:54:12 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:20:21 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_list push_swap(int c, char *v)
+int	main(int ac, char **av)
 {
+	char	*params;
+	char	*tmp;
+	char	**array;
+	t_index	*list;
 	int		i;
-	t_list	*node;
 
 	i = 1;
-	if (c <= 0 || !v)
-		exit;
-	while (i < c)
+	params = NULL;
+	params = ft_strdup("");
+	if (ac > 1)
 	{
-		node = ft_lstnew(v[i]);
-		node->next;
+		while (av[i])
+		{
+			tmp = params;
+			params = ft_strjoin(params, av[i]);
+			free(tmp);
+			tmp = params;
+			params = ft_strjoin(params, " ");
+			free(tmp);
+			i++;
+		}
+	}
+	array = ft_split(params, ' ');
+	i = 0;
+	while (array[i])
+		i++;
+	list = malloc(sizeof(t_index) * i);
+	i = 0;
+	while(array[i])
+	{
+		list[i].value = ft_atoi(array[i]);
+		list[i].index = -1;
 		i++;
 	}
 }
+tmp;
 
-int	main(int c, char *v[])
-{
-
-}
+if (list[i].index == -1)
+	if (list[i].value < list[tmp].value)
+		tmp = i;

@@ -6,7 +6,7 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 07:02:50 by reribeir          #+#    #+#             */
-/*   Updated: 2025/01/14 15:16:15 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/03/11 10:22:02 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,29 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 typedef unsigned long	t_size;
 
 typedef struct s_list
 {
-	int			*content;
+	int				*content;
 	struct s_list	*next;
 }		t_list;
+
+int		ft_printf(const char *c, ...);
+
+int		ft_printchar(char c);
+
+int		ft_printstring(char *c);
+
+int		ft_printnbr(long int c);
+
+int		ft_printhex(unsigned long int c, char *str);
+
+int		ft_printunsigned(unsigned long int c);
+
+int		ft_printpointer(void *addr);
 
 int		ft_isalpha(int c);
 
@@ -76,7 +91,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 
 char	*ft_strtrim(char const *s1, char const *set);
 
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 
 char	*ft_itoa(int n);
 

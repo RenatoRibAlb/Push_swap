@@ -1,9 +1,12 @@
 NAME = pushswap
 
-COMPFLAG = cc -Wall -Werror -Wextra
+LIBFT = libft/
 
-SRC = push_swap.c \
+LIBFT_A =	$(LIBFT)libft.a
 
+COMPFLAG = cc -g -Wall -Werror -Wextra
+
+SRC = push_swap.c
 
 BONUS =
 
@@ -11,29 +14,21 @@ OBJ = $(SRC:.c=.o)
 
 BONUSOBJ = $(BONUS:.c=.o)
 
-all: $(NAME)
-
-$(OBJ): $(SRC)
-		$(COMPFLAG) -c $(SRC)
+all: $(LIBFT_A) $(NAME)
 
 $(NAME): $(OBJ)
-		@make -C libft
-		@make -C printf
-		$(COMPFLAG) $(SRC) libft/libft.a -o $(NAME)
+		$(COMPFLAG) $(OBJ) $(LIBFT_A) -o $(NAME)
+
+$(LIBFT_A):
+		make -C $(LIBFT)
 
 bonus: $(BONUSOBJ) $(OBJ)
 		ar -rc $(NAME) $(BONUSOBJ) $(OBJ)
 
 clean:
-		@make clean -C libft
-		@make clean -C printf
 		rm -rf $(OBJ) $(BONUSOBJ)
 
 fclean: clean
-		@make fclean -C libft
-		@make fclean -C printf
-		rm -rf $(NAME)
+		rm -rf $(OBJ) $(NAME)
 
 re: fclean all
-		@make re -C libft
-		@make re -C printf

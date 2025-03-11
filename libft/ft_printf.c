@@ -6,11 +6,11 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 07:10:14 by reribeir          #+#    #+#             */
-/*   Updated: 2025/01/06 09:16:17 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:13:20 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap.h"
+#include "libft.h"
 
 static int	ft_printable(char c, va_list arguments)
 {
@@ -54,51 +54,6 @@ int	ft_printf(const char *c, ...)
 	}
 	va_end(arguments);
 	return (count);
-}
-
-int	ft_printnbr(long int c)
-{
-	char			str;
-	long long		i;
-
-	i = 0;
-	if (c < 0)
-	{
-		c = -c;
-		i += write(1, "-", 1);
-	}
-	if (c > 9)
-	{
-		i += ft_printnbr((c / 10));
-		str = (c % 10 + '0');
-		i += write (1, &str, 1);
-	}
-	if (c >= 0 && c <= 9)
-	{
-		str = (c % 10 + '0');
-		i += write (1, &str, 1);
-	}
-	return (i);
-}
-
-int	ft_printunsigned(unsigned long int c)
-{
-	unsigned int	i;
-	char			str;
-
-	i = 0;
-	if (c > 9)
-	{
-		i += ft_printnbr((c / 10));
-		str = (c % 10 + '0');
-		i += write (1, &str, 1);
-	}
-	if (c >= 0 && c <= 9)
-	{
-		str = (c % 10 + '0');
-		i += write (1, &str, 1);
-	}
-	return (i);
 }
 
 /*int	main(void)

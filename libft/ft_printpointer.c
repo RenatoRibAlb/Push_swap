@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printpointer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 11:59:28 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 14:57:59 by reribeir         ###   ########.fr       */
+/*   Created: 2024/10/22 16:03:49 by reribeir          #+#    #+#             */
+/*   Updated: 2025/02/14 10:13:27 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_printpointer(void *addr)
 {
-	size_t	i;
+	unsigned long	n;
+	int				i;
 
+	n = (unsigned long)addr;
 	i = 0;
-	while (s && s[i] != '\0')
-		i++;
+	if (!addr)
+		return (ft_printstring("(nil)"));
+	i += write (1, "0x", 2);
+	i += ft_printhex(n, "0123456789abcdef");
 	return (i);
 }
-/*int	main(void)
-{
-	#include <stdio.h>
-	printf("%zu", ft_strlen("Renato"));
-}*/

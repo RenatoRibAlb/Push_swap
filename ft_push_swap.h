@@ -6,7 +6,7 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 07:02:50 by reribeir          #+#    #+#             */
-/*   Updated: 2025/01/09 10:22:34 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:05:24 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <stdarg.h>
 # include "./libft/libft.h"
 
-typedef struct s_list
+typedef struct s_index
 {
-	void			*content;
-	struct s_list	*next;
-}		t_list;
+	long long	value;
+	int	index;
+}		t_index;
 
-t_list push_swap(int c, char *v[]);
+int push_swap(int c, char *v[]);
 
 int	ft_printf(const char *c, ...);
 

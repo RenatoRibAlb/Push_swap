@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 11:59:28 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 14:57:59 by reribeir         ###   ########.fr       */
+/*   Created: 2024/10/22 11:45:15 by reribeir          #+#    #+#             */
+/*   Updated: 2025/02/14 10:13:18 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_printchar(char c)
 {
-	size_t	i;
-
-	i = 0;
-	while (s && s[i] != '\0')
-		i++;
-	return (i);
+	return (write (1, &c, 1));
 }
-/*int	main(void)
-{
-	#include <stdio.h>
-	printf("%zu", ft_strlen("Renato"));
-}*/
