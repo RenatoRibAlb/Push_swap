@@ -6,7 +6,7 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 08:14:12 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 15:20:21 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:08:13 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	main(int ac, char **av)
 {
 	char	*params;
 	char	*tmp;
-	char	**array;
-	t_index	*list;
 	int		i;
 
 	i = 1;
@@ -36,8 +34,18 @@ int	main(int ac, char **av)
 			i++;
 		}
 	}
-	array = ft_split(params, ' ');
+	get_line(params);
+	return(0);
+}
+
+t_index	get_line(char *params)
+{
+	char	**array;
+	t_index	*list;
+	int		i;
+
 	i = 0;
+	array = ft_split(params, ' ');
 	while (array[i])
 		i++;
 	list = malloc(sizeof(t_index) * i);
@@ -49,8 +57,27 @@ int	main(int ac, char **av)
 		i++;
 	}
 }
-tmp;
+t_index	sort_line(t_index *list)
+{
+	int	i;
+	int	temp;
+	int	ind;
 
-if (list[i].index == -1)
-	if (list[i].value < list[tmp].value)
-		tmp = i;
+	i = 0;
+	ind = 0;
+	while(list[i].index)
+	{
+		temp = i + 1;
+		if (list[i].index == -1)
+		{
+			if (list[i].value > list[temp].value)
+			{
+				list[temp].index == ind;
+				ind++;
+			}
+			temp++;
+		}
+		else
+			i++;
+	}
+}
