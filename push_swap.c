@@ -6,11 +6,11 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 08:14:12 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 16:08:13 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/03/28 10:23:13 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
 int	main(int ac, char **av)
 {
@@ -23,13 +23,14 @@ int	main(int ac, char **av)
 	params = ft_strdup("");
 	if (ac > 1)
 	{
-		while (av[i])
+		while (av[i] && (ft_isnum(av[i]) == 1))
 		{
 			tmp = params;
 			params = ft_strjoin(params, av[i]);
 			free(tmp);
 			tmp = params;
-			params = ft_strjoin(params, " ");
+			if (ac > 2)
+				params = ft_strjoin(params, " ");
 			free(tmp);
 			i++;
 		}
@@ -56,7 +57,15 @@ t_index	get_line(char *params)
 		list[i].index = -1;
 		i++;
 	}
+	if (check_duplicate(array) == -1)
+	{
+		free(array);
+		free(list);
+		ft_printf("Error\n");
+		exit;
+	}
 }
+
 t_index	sort_line(t_index *list)
 {
 	int	i;
