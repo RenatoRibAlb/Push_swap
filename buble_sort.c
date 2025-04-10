@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils1.c                                 :+:      :+:    :+:   */
+/*   buble_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:04:35 by reribeir          #+#    #+#             */
-/*   Updated: 2025/04/10 10:46:42 by reribeir         ###   ########.fr       */
+/*   Created: 2025/04/10 13:44:20 by reribeir          #+#    #+#             */
+/*   Updated: 2025/04/10 13:51:51 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	free_renew(char **renew1, char *renew2)
+t_list	buble_sort(t_list *list)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	free(renew2);
-	while (renew1[i])
+	j = 0;
+	while(list)
 	{
-		free(renew1[i]);
-		i++;
+
 	}
+
 }
