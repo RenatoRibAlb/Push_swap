@@ -1,4 +1,4 @@
-NAME = pushswap
+NAME = push_swap
 
 LIBFT = libft/
 
@@ -6,7 +6,8 @@ LIBFT_A =	$(LIBFT)libft.a
 
 COMPFLAG = cc -g -Wall -Werror -Wextra
 
-SRC = main.c instructions.c index.c check_args.c radix.c simple.c t_list.c utils.c
+SRC = push_swap.c instructions.c index.c check_args.c radix.c simple.c t_list.c \
+		utils.c utils2.c moves.c push.c swap.c
 
 BONUS =
 

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 07:02:50 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 12:08:30 by reribeir         ###   ########.fr       */
+/*   Created: 2025/01/06 08:14:12 by reribeir          #+#    #+#             */
+/*   Updated: 2025/04/14 12:32:46 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	initStack(t_list **stack, int argc, char **argv)
+static void	initstack(t_list **stack, int argc, char **argv)
 {
 	t_list	*new;
 	char	**args;
@@ -50,14 +50,14 @@ int	main(int argc, char **argv)
 	t_list	**stack_a;
 	t_list	**stack_b;
 
-	if (argc < 2)
-		return (-1);
+	if (argc < 2 || !argv[1] || argv[1][0] == '\0')
+		ft_error("Error");
 	ft_check_args(argc, argv);
 	stack_a = (t_list **)malloc(sizeof(t_list));
 	stack_b = (t_list **)malloc(sizeof(t_list));
 	*stack_a = NULL;
 	*stack_b = NULL;
-	initStack(stack_a, argc, argv);
+	initstack(stack_a, argc, argv);
 	if (is_sorted(stack_a))
 	{
 		free_stack(stack_a);
@@ -69,4 +69,3 @@ int	main(int argc, char **argv)
 	free_stack(stack_b);
 	return (0);
 }
-

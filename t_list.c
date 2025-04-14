@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 07:02:50 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 12:08:30 by reribeir         ###   ########.fr       */
+/*   Created: 2025/04/14 11:23:30 by reribeir          #+#    #+#             */
+/*   Updated: 2025/04/14 11:54:29 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,6 @@ t_list	*ft_lstnew(int value)
 	new->index = -1;
 	new->next = NULL;
 	return (new);
-}
-
-void	ft_lstadd_front(t_list **stack, t_list *new)
-{
-	new->next = *stack;
-	*stack = new;
-}
-
-t_list	*ft_lstlast(t_list *head)
-{
-	t_list	*tmp;
-
-	tmp = head;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		if (tmp->next == NULL)
-			return (tmp);
-	}
-	return (tmp);
 }
 
 void	ft_lstadd_back(t_list **stack, t_list *new)
@@ -62,22 +42,7 @@ void	ft_lstadd_back(t_list **stack, t_list *new)
 	}
 }
 
-int	ft_lstsize(t_list *head)
-{
-	size_t	i;
-	t_list	*tmp;
-
-	tmp = head;
-	i = 0;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		i++;
-	}
-	return (i);
-}
-
-void	printList(t_list *head)
+void	printlist(t_list *head)
 {
 	t_list	*tmp;
 
@@ -89,4 +54,3 @@ void	printList(t_list *head)
 		tmp = tmp->next;
 	}
 }
-

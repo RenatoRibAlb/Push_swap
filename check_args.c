@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 07:02:50 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 12:08:30 by reribeir         ###   ########.fr       */
+/*   Created: 2025/04/14 10:50:05 by reribeir          #+#    #+#             */
+/*   Updated: 2025/04/14 12:35:58 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static int	ft_isnum(char *num)
 	i = 0;
 	if (num[0] == '-')
 		i++;
+	if (!ft_isdigit(num[i]))
+		return (0);
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
@@ -56,7 +58,7 @@ void	ft_check_args(int argc, char **argv)
 	}
 	while (args[i])
 	{
-		tmp = ft_atoi(args[i]);
+		tmp = ft_atol(args[i]);
 		if (!ft_isnum(args[i]))
 			ft_error("Error");
 		if (ft_contains(tmp, args, i))

@@ -6,29 +6,21 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 07:02:50 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 12:08:30 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:05:30 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
-
-// Stack
-typedef struct s_list
-{
-	int				value;
-	int				index;
-	struct s_list	*next;
-}				t_list;
+# include "./libft/libft.h"
 
 // Util functions
 t_list	*ft_lstnew(int value);
 t_list	*ft_lstlast(t_list *head);
 void	ft_lstadd_front(t_list **stack, t_list *new);
 void	ft_lstadd_back(t_list **stack, t_list *new);
-void	printList(t_list *head);
+void	printlist(t_list *head);
 int		ft_lstsize(t_list *head);
 
 void	ft_error(char *msg);
@@ -42,6 +34,7 @@ void	ft_free(char **str);
 // Algorithm utils
 void	radix_sort(t_list **stack_a, t_list **stack_b);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
+int		get_min(t_list **stack, int val);
 void	index_stack(t_list **stack);
 void	sort_5(t_list **stack_a, t_list **stack_b);
 
@@ -49,7 +42,7 @@ void	sort_5(t_list **stack_a, t_list **stack_b);
 int		swap(t_list **stack);
 int		push(t_list **stack_to, t_list **stack_from);
 int		rotate(t_list **stack);
-int		reverseRotate(t_list **stack);
+int		reverserotate(t_list **stack);
 
 int		sa(t_list **stack_a);
 int		sb(t_list **stack_b);
@@ -64,4 +57,3 @@ int		rrb(t_list **stack_b);
 int		rrr(t_list **stack_a, t_list **stack_b);
 
 #endif
-

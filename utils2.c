@@ -1,61 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 14:04:35 by reribeir          #+#    #+#             */
-/*   Updated: 2025/04/14 12:14:14 by reribeir         ###   ########.fr       */
+/*   Created: 2025/04/14 11:39:40 by reribeir          #+#    #+#             */
+/*   Updated: 2025/04/14 12:05:16 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
-}
-
-void	ft_free(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
-		free(str[i--]);
-}
-
-int	is_sorted(t_list **stack)
+void	make_top(t_list **stack, int distance)
 {
 	t_list	*head;
+	int		tmp;
 
+	if (distance == 0)
+		return ;
 	head = *stack;
-	while (head && head->next)
+	tmp = ft_lstsize(head) - distance;
+	if (distance <= (ft_lstsize(head) / 2))
 	{
-		if (head->value > head->next->value)
-			return (0);
-		head = head->next;
+		while (distance-- > 0)
+			ra(stack);
 	}
-	return (1);
+	else
+	{
+		while (tmp-- > 0)
+			rra(stack);
+	}
 }
 
-int	get_distance(t_list **stack, int index)
+void	free_stack(t_list **stack)
 {
 	t_list	*head;
-	int		distance;
+	t_list	*tmp;
 
-	distance = 0;
 	head = *stack;
 	while (head)
 	{
-		if (head->index == index)
-			break ;
-		distance++;
+		tmp = head;
 		head = head->next;
+		free(tmp);
 	}
-	return (distance);
+	free(stack);
+}
+
+int	get_min(t_list **stack, int val)
+{
+	t_list	*head;
+	int		min;
+
+	head = *stack;
+	min = head->index;
+	while (head->next)
+	{
+		head = head->next;
+		if ((head->index < min) && head->index != val)
+			min = head->index;
+	}
+	return (min);
 }

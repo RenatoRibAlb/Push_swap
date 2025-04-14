@@ -5,40 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 07:02:50 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 12:08:30 by reribeir         ###   ########.fr       */
+/*   Created: 2025/04/14 11:23:09 by reribeir          #+#    #+#             */
+/*   Updated: 2025/04/14 12:02:45 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_min(t_list **stack, int val)
+static void	solution(t_list *head, int min, int next_min, t_list **stack_a)
 {
-	t_list	*head;
-	int		min;
-
-	head = *stack;
-	min = head->index;
-	while (head->next)
-	{
-		head = head->next;
-		if ((head->index < min) && head->index != val)
-			min = head->index;
-	}
-	return (min);
-}
-
-static void	sort_3(t_list **stack_a)
-{
-	t_list	*head;
-	int		min;
-	int		next_min;
-
-	head = *stack_a;
-	min = get_min(stack_a, -1);
-	next_min = get_min(stack_a, min);
-	if (is_sorted(stack_a))
-		return ;
 	if (head->index == min && head->next->index != next_min)
 	{
 		ra(stack_a);
@@ -62,6 +37,20 @@ static void	sort_3(t_list **stack_a)
 			rra(stack_a);
 		}
 	}
+}
+
+static void	sort_3(t_list **stack_a)
+{
+	t_list	*head;
+	int		min;
+	int		next_min;
+
+	head = *stack_a;
+	min = get_min(stack_a, -1);
+	next_min = get_min(stack_a, min);
+	if (is_sorted(stack_a))
+		return ;
+	solution(head, min, next_min, stack_a);
 }
 
 static void	sort_4(t_list **stack_a, t_list **stack_b)
@@ -130,4 +119,3 @@ void	simple_sort(t_list **stack_a, t_list **stack_b)
 	else if (size == 5)
 		sort_5(stack_a, stack_b);
 }
-

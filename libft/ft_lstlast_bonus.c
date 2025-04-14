@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 07:39:14 by reribeir          #+#    #+#             */
-/*   Updated: 2025/04/14 12:20:21 by reribeir         ###   ########.fr       */
+/*   Created: 2024/10/17 15:35:17 by reribeir          #+#    #+#             */
+/*   Updated: 2024/10/18 09:20:05 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *nptr)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int			i;
-	long int	r;
-	int			s;
-
-	s = 1;
-	i = 0;
-	r = 0;
-	while ((nptr[i] > 7 && nptr[i] < 14) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '-')
-	{
-		s *= -1;
-		i++;
-	}
-	else if (nptr[i] == '+')
-		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		r = r * 10 + (nptr[i] - 48);
-		i++;
-	}
-	return (s * r);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
+/*int	main(void)
+{
+	t_list	*a;
+	t_list	*b;
+	t_list	*c;
+
+	a = ft_lstnew("Renato");
+	b = ft_lstnew("Renato2");
+	ft_lstadd_front(&a, b);
+	c = ft_lstlast(b);
+	printf("%s", (char *)c->content);
+}*/

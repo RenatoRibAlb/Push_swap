@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 07:39:14 by reribeir          #+#    #+#             */
-/*   Updated: 2025/04/14 12:20:21 by reribeir         ###   ########.fr       */
+/*   Created: 2024/10/17 15:24:59 by reribeir          #+#    #+#             */
+/*   Updated: 2024/10/17 15:34:36 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *nptr)
+int	ft_lstsize(t_list *lst)
 {
-	int			i;
-	long int	r;
-	int			s;
+	int	i;
 
-	s = 1;
 	i = 0;
-	r = 0;
-	while ((nptr[i] > 7 && nptr[i] < 14) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '-')
+	while (lst)
 	{
-		s *= -1;
+		lst = lst->next;
 		i++;
 	}
-	else if (nptr[i] == '+')
-		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		r = r * 10 + (nptr[i] - 48);
-		i++;
-	}
-	return (s * r);
+	return (i);
 }
+/*int	main(void)
+{
+	t_list	*a;
+	t_list	*b;
+
+	a = ft_lstnew("Renato");
+	b = ft_lstnew("Renato2");
+	ft_lstadd_front(&a, b);
+	printf("%d", ft_lstsize(b));
+}*/

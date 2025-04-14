@@ -6,7 +6,7 @@
 /*   By: reribeir <reribeir@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 07:02:50 by reribeir          #+#    #+#             */
-/*   Updated: 2025/03/11 10:22:02 by reribeir         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:20:10 by reribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <stdarg.h>
 
 typedef unsigned long	t_size;
+
+typedef struct s_list
+{
+	int				value;
+	int				index;
+	struct s_list	*next;
+}				t_list;
 
 int		ft_printf(const char *c, ...);
 
@@ -75,7 +82,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 int		ft_atoi(const char *nptr);
 
-int		ft_atol(const char *nptr);
+long	ft_atol(const char *nptr);
 
 void	*ft_calloc(size_t nmemb, size_t size);
 
@@ -102,5 +109,11 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 
 void	ft_putnbr_fd(int n, int fd);
+
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+t_list	*ft_lstlast(t_list *lst);
+
+int		ft_lstsize(t_list *lst);
 
 #endif
