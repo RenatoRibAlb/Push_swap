@@ -6,7 +6,7 @@ LIBFT_A =	$(LIBFT)libft.a
 
 COMPFLAG = cc -g -Wall -Werror -Wextra
 
-SRC = push_swap.c push_swap_utils1.c push_swap_error.c
+SRC = main.c instructions.c index.c check_args.c radix.c simple.c t_list.c utils.c
 
 BONUS =
 
